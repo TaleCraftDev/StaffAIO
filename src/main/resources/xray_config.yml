@@ -20,3 +20,10 @@ alerts:
   enabled: true
   message: "&e%player% &fmined &b%count% %block% &fat &a%x%, %y%, %z% &f(World: &d%world%&f)."
 
+webhook:
+  enabled: true
+  url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+  message:
+    title: "Xray Alert!"
+    color: 15158332  # Red color
+
