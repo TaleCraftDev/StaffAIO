@@ -3,6 +3,13 @@ version: '1.0-SNAPSHOT'
 main: xyz.talecraft.staffAIO.StaffAIO
 api-version: '1.21'
 
+commands:
+  alerts:
+    description: Allows you to toggle whether or not you will see specific alerts.
+    permission: staffaio.alerts
+    permission-message: You do not have permission to use this command.
+    usage: "Usage: /<command> [toggle] [mining]"
+
 permissions:
     staffaio.*:
     staffaio.staff:
