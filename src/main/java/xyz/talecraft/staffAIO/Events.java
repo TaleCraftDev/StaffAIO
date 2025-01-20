@@ -1,6 +1,5 @@
 package xyz.talecraft.staffAIO;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -52,7 +51,7 @@ public class Events implements Listener {
 	/**
 	 * Player quit event.
 	 * Removes staff from the staff list
-	 * @param event
+	 * @param event Quit event
 	 */
 	@EventHandler
 	public void onQuit(PlayerQuitEvent event) {
@@ -60,9 +59,16 @@ public class Events implements Listener {
 		// If so, add them to the staff list
 		String staffPermission = plugin.getConfig().getString("staff_permission");
 
+		if(staffPermission == null) {
+			plugin.getLogger().log(Level.SEVERE, "Staff permission unset");
+			return;
+		}
+
 		Player player = event.getPlayer();
 
-		StaffAIO.staffManager.removeStaffMember(player);
+		if(player.hasPermission(staffPermission)) {
+			StaffAIO.staffManager.removeStaffMember(player);
+		}
 	}
 
 }
