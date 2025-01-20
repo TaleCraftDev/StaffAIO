@@ -13,7 +13,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.talecraft.staffAIO.StaffAIO;
 
 import java.util.HashMap;
-import java.util.logging.Level;
 
 public class MiningEvents implements Listener {
 
