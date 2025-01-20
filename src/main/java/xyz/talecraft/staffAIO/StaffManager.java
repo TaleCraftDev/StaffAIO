@@ -84,13 +84,13 @@ public class StaffManager {
 		// Replacing placeholders
 		Location blockLocation = block.getLocation();
 
-		alertMessage = alertMessage.replaceAll("%player%", target.getName());
-		alertMessage = alertMessage.replaceAll("%count%", String.valueOf(amount));
-		alertMessage = alertMessage.replaceAll("%block%", block.getBlockData().getMaterial().toString());
-		alertMessage = alertMessage.replaceAll("%x%", String.valueOf(blockLocation.getBlockX()));
-		alertMessage = alertMessage.replaceAll("%y%", String.valueOf(blockLocation.getBlockY()));
-		alertMessage = alertMessage.replaceAll("%z%", String.valueOf(blockLocation.getBlockZ()));
-		alertMessage = alertMessage.replaceAll("%world%", Objects.requireNonNull(blockLocation.getWorld()).getName());
+		alertMessage = alertMessage.replaceAll("%player%", target.getName())
+				.replaceAll("%count%", String.valueOf(amount))
+				.replaceAll("%block%", block.getBlockData().getMaterial().toString())
+				.replaceAll("%x%", String.valueOf(blockLocation.getBlockX()))
+				.replaceAll("%y%", String.valueOf(blockLocation.getBlockY()))
+				.replaceAll("%z%", String.valueOf(blockLocation.getBlockZ()))
+				.replaceAll("%world%", Objects.requireNonNull(blockLocation.getWorld()).getName());
 
 		for(Player player : miningReportsEnabled) {
 			player.sendMessage(alertMessage);
