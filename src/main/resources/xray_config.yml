@@ -12,9 +12,13 @@ ores:
 # Threshold settings: Maximum number of ores a player can mine within the timeframe before triggering an alert.
 thresholds:
   diamond_ore: 5  # Max diamonds in the timeframe
+  deepslate_diamond_ore: 5
   emerald_ore: 3  # Max emeralds in the timeframe
+  deepslate_emerald_ore: 3
   gold_ore: 10    # Max gold in the timeframe
+  deepslate_gold_ore: 10
   iron_ore: 15    # Max iron in the timeframe
+  deepslate_iron_ore: 15
 
 # Time in seconds to monitor mining activity for alerts
 timeframe: 60
