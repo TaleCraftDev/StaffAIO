@@ -1,27 +1,50 @@
 package xyz.talecraft.staffAIO;
 
 import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.talecraft.staffAIO.xrayDetector.MiningEvents;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
 
 public final class StaffAIO extends JavaPlugin {
 
-	ConfigManager xrayConfig;
+	public static StaffManager staffManager = new StaffManager();
+	public static ConfigManager xrayConfig = new ConfigManager();
 
 	@Override
 	public void onEnable() {
 		// Saving plugin config
 		saveDefaultConfig();
 
+		// Permissions
+		String staffPermission = getConfig().getString("staff_permission");
+		String alertPermission = getConfig().getString("alert_permission");
+
+		if(staffPermission == null) {
+			getLogger().log(Level.SEVERE, "Staff permission unset");
+			return;
+		}
+
+		if(alertPermission == null) {
+			getLogger().log(Level.SEVERE, "Alert permission unset");
+			return;
+		}
+
+		// Adding valid players to staff manager
+		// Only done plugin is actively reloaded
+		for(Player player : getServer().getOnlinePlayers()) {
+			if(player.hasPermission(staffPermission)) staffManager.addStaffMember(player, player.hasPermission(alertPermission));
+		}
+
 		// Initializing component configs
 		try {
 			String dataPath = getDataFolder().getAbsolutePath();
 
-			xrayConfig = new ConfigManager("xray_config.yml", dataPath);
+			xrayConfig.init("xray_config.yml", dataPath);
 		} catch (IOException | InvalidConfigurationException e) {
 			throw new RuntimeException(e);
 		}
