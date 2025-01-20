@@ -1,2 +1,4 @@
 staff_permission: staffaio.staff
 alert_permission: staffaio.alerts
+
+alert_prefix: "&c[Alert] &e"
