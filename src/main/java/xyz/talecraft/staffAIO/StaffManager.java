@@ -59,7 +59,7 @@ public class StaffManager {
 		alertMessage = alertMessage.replaceAll("%x%", String.valueOf(blockLocation.getBlockX()));
 		alertMessage = alertMessage.replaceAll("%y%", String.valueOf(blockLocation.getBlockY()));
 		alertMessage = alertMessage.replaceAll("%z%", String.valueOf(blockLocation.getBlockZ()));
-		alertMessage = alertMessage.replaceAll("%world%", blockLocation.getWorld().getName());
+		alertMessage = alertMessage.replaceAll("%world%", Objects.requireNonNull(blockLocation.getWorld()).getName());
 
 		for(Player player : miningReportsEnabled) {
 			player.sendMessage(alertMessage);
