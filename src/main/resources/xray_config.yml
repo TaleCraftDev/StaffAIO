@@ -1,0 +1,23 @@
+# Target ores: List of ores to monitor for suspicious mining
+# Any ores automatically check for deepslate variants
+ores:
+  - diamond_ore
+  - emerald_ore
+  - gold_ore
+  - iron_ore
+
+# Threshold settings: Maximum number of ores a player can mine within the timeframe before triggering an alert.
+thresholds:
+  diamond_ore: 5  # Max diamonds in the timeframe
+  emerald_ore: 3  # Max emeralds in the timeframe
+  gold_ore: 10    # Max gold in the timeframe
+  iron_ore: 15    # Max iron in the timeframe
+
+# Time in seconds to monitor mining activity for alerts
+timeframe: 60
+
+# Real-time alerts for those with the permission
+alerts:
+  enabled: true
+  message: "&c[X-Ray Alert] &e{player} &fmined &b{count} {ore} &fat &a{x}, {y}, {z} &f(World: &d{world}&f)."
+
