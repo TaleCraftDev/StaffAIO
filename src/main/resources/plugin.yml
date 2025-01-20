@@ -2,3 +2,10 @@ name: StaffAIO
 version: '1.0-SNAPSHOT'
 main: xyz.talecraft.staffAIO.StaffAIO
 api-version: '1.21'
+
+permissions:
+    staffaio.*:
+    staffaio.staff:
+      description: Players with the permission will be added to the staff list
+    staffaio.alerts:
+      description: If the player gets alerts
