@@ -26,5 +26,5 @@ timeframe: 60
 # Real-time alerts for those with the permission
 alerts:
   enabled: true
-  message: "&c[X-Ray Alert] &e{player} &fmined &b{count} {ore} &fat &a{x}, {y}, {z} &f(World: &d{world}&f)."
+  message: "&c[X-Ray Alert] &e%player% &fmined &b%count% %block% &fat &a%x%, %y%, %z% &f(World: &d%world%&f)."
 
