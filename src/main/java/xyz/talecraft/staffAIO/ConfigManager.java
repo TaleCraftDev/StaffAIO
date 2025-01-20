@@ -17,18 +17,17 @@ public class ConfigManager {
 	Plugin plugin;
 
 	/**
-	 * Constructor for the config manager.
-	 * Sets up the file.
+	 * Initializes the config manager.
 	 * @param name Name of the config file. Must exist in resources to be copied in case it doesn't exist.
 	 * @param dataFolder Path to the plugin's config folder.
 	 */
-	public ConfigManager(String name, String dataFolder) throws IOException, InvalidConfigurationException {
+	public void init(String name, String dataFolder) throws IOException, InvalidConfigurationException {
 		// Variable initialization
-		plugin = JavaPlugin.getPlugin(StaffAIO.class);
-		file = new File(dataFolder, name);
+		this.plugin = JavaPlugin.getPlugin(StaffAIO.class);
+		this.file = new File(dataFolder, name);
 
 		// Saving config file
-		plugin.saveResource(name, false);
+		plugin.saveResource(file.getName(), false);
 
 		// Setting up file config
 		config = new YamlConfiguration();
