@@ -74,6 +74,10 @@ public class MiningEvents implements Listener {
 		Block block = event.getBlock();
 		String materialName = block.getBlockData().getMaterial().name().toLowerCase();
 
+		if(materialName.contains("deepslate_")) {
+			materialName = materialName.replaceFirst("deepslate_", "");
+		}
+
 		// Checking if the block is part of the blocks to check
 		if(!blocksToCheck.containsKey(materialName)) return;
 
@@ -100,7 +104,6 @@ public class MiningEvents implements Listener {
 		int oreMinedAmount = oresMined.get(player).get(materialName);
 
 		if(oreMinedAmount >= blocksToCheck.get(materialName)) {
-			plugin.getLogger().log(Level.INFO, player.getName() + " has reached the mining threshold for " + materialName);
 			StaffAIO.staffManager.sendMiningReport(player, block, oreMinedAmount);
 		}
 	}
