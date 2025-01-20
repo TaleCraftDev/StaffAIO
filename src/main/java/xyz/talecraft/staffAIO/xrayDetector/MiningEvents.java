@@ -12,7 +12,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.talecraft.staffAIO.StaffAIO;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 
