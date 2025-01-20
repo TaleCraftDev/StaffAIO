@@ -1,10 +1,13 @@
 # Target ores: List of ores to monitor for suspicious mining
-# Any ores automatically check for deepslate variants
 ores:
   - diamond_ore
   - emerald_ore
   - gold_ore
   - iron_ore
+  - deeplsate_diamond_ore
+  - deepslate_emerald_ore
+  - deepslate_gold_ore
+  - deepslate_iron_ore
 
 # Threshold settings: Maximum number of ores a player can mine within the timeframe before triggering an alert.
 thresholds:
