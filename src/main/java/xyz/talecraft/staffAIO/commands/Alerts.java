@@ -28,17 +28,23 @@ public class Alerts implements CommandExecutor, TabCompleter {
 
 		String alertPrefix = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("alert_prefix")));
 
+		if(args.length == 0 || args.length == 1) return false;
+
 		if(Objects.equals(args[0], "toggle")) {
-			if(Objects.equals(args[1], "mining")) {
-				boolean enabled = StaffAIO.staffManager.toggleMiningAlert(player);
+			switch (args[1]) {
+				case "mining":
+					boolean enabled = StaffAIO.staffManager.toggleMiningAlert(player);
 
-				if(enabled) {
-					player.sendMessage(alertPrefix + "Mining alerts have been enabled");
-				} else {
-					player.sendMessage(alertPrefix + "Mining alerts have been disabled");
-				}
+					if(enabled) {
+						player.sendMessage(alertPrefix + "Mining alerts have been enabled");
+					} else {
+						player.sendMessage(alertPrefix + "Mining alerts have been disabled");
+					}
 
-				return true;
+					return true;
+
+				default:
+					return false;
 			}
 		}
 
