@@ -9,6 +9,7 @@ import xyz.talecraft.staffAIO.xrayDetector.MiningEvents;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.logging.Level;
 
 public final class StaffAIO extends JavaPlugin {
@@ -69,8 +70,8 @@ public final class StaffAIO extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new MiningEvents(miningTimeframe, thresholds), this);
 
 		// Registering commands
-		getCommand("alerts").setExecutor(new Alerts());
-		getCommand("alerts").setTabCompleter(new Alerts());
+		Objects.requireNonNull(getCommand("alerts")).setExecutor(new Alerts());
+		Objects.requireNonNull(getCommand("alerts")).setTabCompleter(new Alerts());
 	}
 
 	@Override
