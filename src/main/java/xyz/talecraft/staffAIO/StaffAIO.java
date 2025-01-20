@@ -3,6 +3,7 @@ package xyz.talecraft.staffAIO;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.talecraft.staffAIO.commands.Alerts;
 import xyz.talecraft.staffAIO.xrayDetector.MiningEvents;
 
 import java.io.IOException;
@@ -34,6 +35,9 @@ public final class StaffAIO extends JavaPlugin {
 			return;
 		}
 
+		// Initializing staff manager
+		staffManager.init();
+
 		// Adding valid players to staff manager
 		// Only done plugin is actively reloaded
 		for(Player player : getServer().getOnlinePlayers()) {
@@ -63,6 +67,10 @@ public final class StaffAIO extends JavaPlugin {
 
 		// Registering xray events
 		getServer().getPluginManager().registerEvents(new MiningEvents(miningTimeframe, thresholds), this);
+
+		// Registering commands
+		getCommand("alerts").setExecutor(new Alerts());
+		getCommand("alerts").setTabCompleter(new Alerts());
 	}
 
 	@Override
