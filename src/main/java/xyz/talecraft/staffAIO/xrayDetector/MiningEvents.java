@@ -102,6 +102,7 @@ public class MiningEvents implements Listener {
 
 		if(oreMinedAmount >= blocksToCheck.get(materialName)) {
 			plugin.getLogger().log(Level.INFO, player.getName() + " has reached the mining threshold for " + materialName);
+			StaffAIO.staffManager.sendMiningReport(player, block, oreMinedAmount);
 		}
 	}
 
