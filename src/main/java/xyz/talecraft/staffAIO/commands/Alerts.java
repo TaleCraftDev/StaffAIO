@@ -11,7 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.talecraft.staffAIO.StaffAIO;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
